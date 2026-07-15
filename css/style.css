@@ -1,14 +1,42 @@
 /********** Template CSS **********/
 :root {
-    --primary: #13C5DD;
-    --secondary: #354F8E;
-    --light: #EFF5F9;
+    --primary: #1DB853;
+    --secondary: #166E39;
+    --light: #E8F8EE;
     --dark: #1D2A4D;
 }
 
 .btn {
     font-weight: 700;
     transition: .5s;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #178d46 !important;
+    border-color: #178d46 !important;
+}
+
+.bg-dark {
+    background-color: #000 !important;
 }
 
 .btn:hover {
