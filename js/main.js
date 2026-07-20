@@ -96,9 +96,20 @@
     $testimonialCarousel.owlCarousel({
         autoplay: true,
         smartSpeed: 1000,
-        items: 1,
+        margin: 30,
         dots: true,
         loop: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 3
+            }
+        }
     });
 
     $("#testimonialForm").on("submit", function (e) {
@@ -119,10 +130,9 @@
 
         var newSlide = $(
             '<div class="testimonial-item text-center">' +
-            '  <div class="mb-4 testimonial-stars"></div>' +
+            '  <h3 class="mt-2"></h3>' +
+            '  <div class="mb-3 testimonial-stars"></div>' +
             '  <p class="fs-4 fw-normal"></p>' +
-            '  <hr class="w-25 mx-auto">' +
-            '  <h3 class="mt-3"></h3>' +
             '</div>'
         );
 
