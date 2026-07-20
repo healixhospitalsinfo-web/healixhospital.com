@@ -105,31 +105,30 @@
         e.preventDefault();
 
         var name = $.trim($("#testimonialName").val());
-        var profession = $.trim($("#testimonialProfession").val());
+        var rating = $.trim($("#testimonialRating").val());
         var message = $.trim($("#testimonialMessage").val());
 
-        if (!name || !profession || !message) {
+        if (!name || !rating || !message) {
             return;
+        }
+
+        var stars = '';
+        for (var i = 1; i <= 5; i++) {
+            stars += '<i class="fas fa-star text-warning me-1' + (i <= rating ? '' : ' text-secondary') + '"></i>';
         }
 
         var newSlide = $(
             '<div class="testimonial-item text-center">' +
-            '  <div class="position-relative mb-5">' +
-            '    <img class="img-fluid rounded-circle mx-auto" src="img/user.jpg" alt="">' +
-            '    <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 60px; height: 60px;">' +
-            '      <i class="fa fa-quote-left fa-2x text-primary"></i>' +
-            '    </div>' +
-            '  </div>' +
+            '  <div class="mb-4 testimonial-stars"></div>' +
             '  <p class="fs-4 fw-normal"></p>' +
             '  <hr class="w-25 mx-auto">' +
-            '  <h3></h3>' +
-            '  <h6 class="fw-normal text-primary mb-3"></h6>' +
+            '  <h3 class="mt-3"></h3>' +
             '</div>'
         );
 
+        newSlide.find('.testimonial-stars').html(stars);
         newSlide.find('p').text(message);
         newSlide.find('h3').text(name);
-        newSlide.find('h6').text(profession);
 
         $testimonialCarousel.trigger('add.owl.carousel', [newSlide, 0]).trigger('refresh.owl.carousel');
         $testimonialCarousel.trigger('to.owl.carousel', [0, 300]);

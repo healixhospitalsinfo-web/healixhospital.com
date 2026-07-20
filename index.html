@@ -636,7 +636,14 @@
                                     <input type="text" class="form-control" id="testimonialName" placeholder="Your Name" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="testimonialProfession" placeholder="Your Profession" required>
+                                    <select class="form-select" id="testimonialRating" required>
+                                        <option value="" disabled selected>Rating</option>
+                                        <option value="5">★★★★★ Excellent</option>
+                                        <option value="4">★★★★ Good</option>
+                                        <option value="3">★★★ Average</option>
+                                        <option value="2">★★ Poor</option>
+                                        <option value="1">★ Bad</option>
+                                    </select>
                                 </div>
                                 <div class="col-12">
                                     <textarea class="form-control" id="testimonialMessage" rows="4" placeholder="Write your review" required></textarea>
@@ -651,52 +658,9 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-1.jpg" alt="">
-                                <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
-                                    style="width: 60px; height: 60px;">
-                                    <i class="fa fa-quote-left fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <p class="fs-4 fw-normal">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore
-                                dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor
-                                erat. Erat dolor rebum sit ipsum.</p>
-                            <hr class="w-25 mx-auto">
-                            <h3>Patient Name</h3>
-                            <h6 class="fw-normal text-primary mb-3">Profession</h6>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-2.jpg" alt="">
-                                <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
-                                    style="width: 60px; height: 60px;">
-                                    <i class="fa fa-quote-left fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <p class="fs-4 fw-normal">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore
-                                dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor
-                                erat. Erat dolor rebum sit ipsum.</p>
-                            <hr class="w-25 mx-auto">
-                            <h3>Patient Name</h3>
-                            <h6 class="fw-normal text-primary mb-3">Profession</h6>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-3.jpg" alt="">
-                                <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
-                                    style="width: 60px; height: 60px;">
-                                    <i class="fa fa-quote-left fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <p class="fs-4 fw-normal">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore
-                                dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor
-                                erat. Erat dolor rebum sit ipsum.</p>
-                            <hr class="w-25 mx-auto">
-                            <h3>Patient Name</h3>
-                            <h6 class="fw-normal text-primary mb-3">Profession</h6>
-                        </div>
+                    <div class="owl-carousel testimonial-carousel"></div>
+                    <div class="text-center mt-4 testimonial-placeholder text-muted">
+                        <p class="mb-0">Submit your review and it will appear here.</p>
                     </div>
                 </div>
             </div>
