@@ -129,7 +129,7 @@
         }
 
         var newSlide = $(
-            '<div class="testimonial-item text-center">' +
+            '<div class="testimonial-item">' +
             '  <h3 class="mt-2"></h3>' +
             '  <div class="mb-3 testimonial-stars"></div>' +
             '  <p class="fs-4 fw-normal"></p>' +
