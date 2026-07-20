@@ -99,15 +99,16 @@
         margin: 30,
         dots: true,
         loop: true,
+        items: 1,
         responsive: {
             0: {
                 items: 1
             },
             768: {
-                items: 2
+                items: 1
             },
             992: {
-                items: 3
+                items: 1
             }
         }
     });
