@@ -105,7 +105,7 @@
             '<div class="testimonial-item">' +
             '  <h3 class="mt-2"></h3>' +
             '  <div class="mb-3 testimonial-stars"></div>' +
-            '  <p class="fs-4 fw-normal"></p>' +
+            '  <p></p>' +
             '</div>'
         );
 
@@ -163,6 +163,12 @@
         $testimonialCarousel.trigger('add.owl.carousel', [slide, 0]).trigger('refresh.owl.carousel');
     });
     syncTestimonialPlaceholder();
+
+    $("#clearTestimonialsBtn").on("click", function () {
+        localStorage.removeItem(testimonialStorageKey);
+        $testimonialCarousel.trigger('replace.owl.carousel', [[]]).trigger('refresh.owl.carousel');
+        syncTestimonialPlaceholder();
+    });
 
     $("#testimonialForm").on("submit", function (e) {
         e.preventDefault();
