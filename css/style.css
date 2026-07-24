@@ -140,7 +140,9 @@
 }
 
 .hero-header {
-    background: url(../img/hero.jpg) top right no-repeat;
+    background-image: url(../img/hero.jpg);
+    background-position: top right;
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -148,6 +150,14 @@
     font-size: 1.75rem;
     max-width: 660px;
     text-align: left;
+}
+
+@media (max-width: 767.98px) {
+    .hero-header {
+        background-image: url(../img/about.jpg);
+        background-position: center;
+        background-size: cover;
+    }
 }
 
 .gallery-collage img,
