@@ -93,7 +93,7 @@
 
     // Testimonials carousel
     var $testimonialCarousel = $(".testimonial-carousel");
-    var testimonialApiUrl = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+    var testimonialApiUrl = 'https://script.google.com/macros/s/AKfycbxJV_Qq63_Y5sB8bOvHV53vXTazP1iewGhB1CpbUrhi662cjmiEbgZmZXLYxCRjyccM/exec';
 
     function buildTestimonialSlide(name, rating, message) {
         var stars = '';
