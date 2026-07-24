@@ -6,6 +6,35 @@
     --dark: #1D2A4D;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+    color: #304056;
+    line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Jost', sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.display-4 {
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+}
+
+.display-6 {
+    font-size: clamp(1.15rem, 2.1vw, 1.65rem);
+    line-height: 1.7;
+}
+
 .btn {
     font-weight: 700;
     transition: .5s;
@@ -144,12 +173,33 @@
     background-position: top right;
     background-repeat: no-repeat;
     background-size: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-header .container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.hero-header .col-lg-8 {
+    max-width: 760px;
+}
+
+.hero-header h4 {
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
 }
 
 .hero-text {
-    font-size: 1.75rem;
+    font-size: clamp(1.12rem, 2vw, 1.55rem);
     max-width: 660px;
     text-align: left;
+    line-height: 1.8;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 @media (max-width: 767.98px) {
@@ -185,8 +235,13 @@
 }
 
 @media (max-width: 991.98px) {
+    .hero-header .container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
     .hero-text {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .gallery-slide img {
@@ -198,7 +253,9 @@
     position: relative;
     min-height: 360px;
     padding: 40px 30px 80px;
+    border-radius: 22px;
     transition: .5s;
+    box-shadow: 0 14px 36px rgba(18, 48, 84, 0.08);
 }
 
 .service-item .service-icon {
