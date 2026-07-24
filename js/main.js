@@ -93,7 +93,7 @@
 
     // Testimonials carousel
     var $testimonialCarousel = $(".testimonial-carousel");
-    var testimonialStorageKey = 'healixTestimonials';
+    var testimonialApiUrl = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
 
     function buildTestimonialSlide(name, rating, message) {
         var stars = '';
@@ -116,25 +116,29 @@
         return newSlide;
     }
 
-    function loadTestimonials() {
-        try {
-            return JSON.parse(localStorage.getItem(testimonialStorageKey)) || [];
-        } catch (e) {
-            return [];
-        }
-    }
-
-    function saveTestimonials(testimonials) {
-        try {
-            localStorage.setItem(testimonialStorageKey, JSON.stringify(testimonials));
-        } catch (e) {
-            // Ignore storage failures silently.
-        }
-    }
-
     function syncTestimonialPlaceholder() {
         var hasReviews = $testimonialCarousel.find('.testimonial-item').length > 0;
         $('.testimonial-placeholder').toggle(!hasReviews);
+    }
+
+    function loadTestimonials() {
+        if (!testimonialApiUrl || testimonialApiUrl.indexOf('PASTE_') !== -1) {
+            return Promise.resolve([]);
+        }
+
+        return fetch(testimonialApiUrl)
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Unable to load testimonials.');
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                return Array.isArray(data.reviews) ? data.reviews : [];
+            })
+            .catch(function () {
+                return [];
+            });
     }
 
     $testimonialCarousel.owlCarousel({
@@ -157,16 +161,11 @@
         }
     });
 
-    var savedTestimonials = loadTestimonials();
-    $.each(savedTestimonials, function (index, testimonial) {
-        var slide = buildTestimonialSlide(testimonial.name, testimonial.rating, testimonial.message);
-        $testimonialCarousel.trigger('add.owl.carousel', [slide, 0]).trigger('refresh.owl.carousel');
-    });
-    syncTestimonialPlaceholder();
-
-    $("#clearTestimonialsBtn").on("click", function () {
-        localStorage.removeItem(testimonialStorageKey);
-        $testimonialCarousel.trigger('replace.owl.carousel', [[]]).trigger('refresh.owl.carousel');
+    loadTestimonials().then(function (savedTestimonials) {
+        $.each(savedTestimonials, function (index, testimonial) {
+            var slide = buildTestimonialSlide(testimonial.name, testimonial.rating, testimonial.message);
+            $testimonialCarousel.trigger('add.owl.carousel', [slide, 0]).trigger('refresh.owl.carousel');
+        });
         syncTestimonialPlaceholder();
     });
 
@@ -182,19 +181,34 @@
         }
 
         var parsedRating = parseInt(rating, 10);
-        var testimonials = loadTestimonials();
-        testimonials.unshift({
-            name: name,
-            rating: parsedRating,
-            message: message
-        });
-        saveTestimonials(testimonials);
 
-        var newSlide = buildTestimonialSlide(name, parsedRating, message);
-        $testimonialCarousel.trigger('add.owl.carousel', [newSlide, 0]).trigger('refresh.owl.carousel');
-        syncTestimonialPlaceholder();
-        $testimonialCarousel.trigger('to.owl.carousel', [0, 300]);
-        this.reset();
+        fetch(testimonialApiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                rating: parsedRating,
+                message: message
+            })
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Unable to submit testimonial.');
+            }
+            return response.json();
+        })
+        .then(function () {
+            var newSlide = buildTestimonialSlide(name, parsedRating, message);
+            $testimonialCarousel.trigger('add.owl.carousel', [newSlide, 0]).trigger('refresh.owl.carousel');
+            syncTestimonialPlaceholder();
+            $testimonialCarousel.trigger('to.owl.carousel', [0, 300]);
+            this.reset();
+        }.bind(this))
+        .catch(function () {
+            alert('Review could not be submitted. Please update the Apps Script URL in main.js.');
+        });
     });
 
     // Gallery carousel
