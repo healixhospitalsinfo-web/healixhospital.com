@@ -147,7 +147,6 @@
         margin: 30,
         dots: true,
         loop: true,
-        items: 2,
         responsive: {
             0: {
                 items: 1
@@ -157,12 +156,21 @@
             },
             992: {
                 items: 2
+            },
+            1200: {
+                items: 3
             }
         }
     });
 
     loadTestimonials().then(function (savedTestimonials) {
-        $.each(savedTestimonials, function (index, testimonial) {
+        var sortedTestimonials = savedTestimonials.slice().sort(function (a, b) {
+            var aTime = new Date(a.created_at || 0).getTime();
+            var bTime = new Date(b.created_at || 0).getTime();
+            return bTime - aTime;
+        });
+
+        $.each(sortedTestimonials, function (index, testimonial) {
             var slide = buildTestimonialSlide(testimonial.name, testimonial.rating, testimonial.message);
             $testimonialCarousel.trigger('add.owl.carousel', [slide, 0]).trigger('refresh.owl.carousel');
         });
