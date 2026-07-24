@@ -243,6 +243,29 @@
             }
         }
     });
+
+
+const popup = document.getElementById("whatsapp-popup");
+const icon = document.getElementById("wa-icon");
+const closeBtn = document.querySelector(".wa-close");
+
+if (popup && icon && closeBtn) {
+
+    setTimeout(function () {
+        popup.style.display = "block";
+    }, 3000);
+
+    icon.addEventListener("click", function () {
+        popup.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+}
+
+})(jQuery);
     
 })(jQuery);
 

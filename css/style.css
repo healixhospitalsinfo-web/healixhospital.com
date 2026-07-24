@@ -504,3 +504,107 @@ h6 {
     width: 350px;
     height: 150px;
 }
+.wa-icon{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:34px;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    transition:.3s;
+}
+
+.wa-icon:hover{
+    transform:scale(1.08);
+}
+
+.wa-popup{
+    position:fixed;
+    bottom:100px;
+    right:25px;
+    width:330px;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    z-index:9999;
+    display:none;
+    animation:popup .4s ease;
+}
+
+@keyframes popup{
+from{
+transform:translateY(30px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+.wa-header{
+    background:#25D366;
+    color:#fff;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.wa-close{
+    font-size:24px;
+    cursor:pointer;
+}
+
+.wa-body{
+    padding:18px;
+}
+
+.wa-body p{
+    margin-bottom:10px;
+    color:#555;
+    line-height:1.5;
+}
+
+.wa-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:13px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.wa-btn:hover{
+    background:#1ebe5d;
+    color:#fff;
+}
+
+@media(max-width:480px){
+
+.wa-popup{
+width:90%;
+right:5%;
+bottom:90px;
+}
+
+.wa-icon{
+right:18px;
+bottom:18px;
+}
+
+}
