@@ -93,37 +93,9 @@
 
     // Testimonials carousel
     var $testimonialCarousel = $(".testimonial-carousel");
-    $testimonialCarousel.owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 30,
-        dots: true,
-        loop: true,
-        items: 3,
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 3
-            }
-        }
-    });
+    var testimonialStorageKey = 'healixTestimonials';
 
-    $("#testimonialForm").on("submit", function (e) {
-        e.preventDefault();
-
-        var name = $.trim($("#testimonialName").val());
-        var rating = $.trim($("#testimonialRating").val());
-        var message = $.trim($("#testimonialMessage").val());
-
-        if (!name || !rating || !message) {
-            return;
-        }
-
+    function buildTestimonialSlide(name, rating, message) {
         var stars = '';
         for (var i = 1; i <= 5; i++) {
             stars += '<i class="fas fa-star text-warning me-1' + (i <= rating ? '' : ' text-secondary') + '"></i>';
@@ -141,9 +113,82 @@
         newSlide.find('p').text(message);
         newSlide.find('h3').text(name);
 
+        return newSlide;
+    }
+
+    function loadTestimonials() {
+        try {
+            return JSON.parse(localStorage.getItem(testimonialStorageKey)) || [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveTestimonials(testimonials) {
+        try {
+            localStorage.setItem(testimonialStorageKey, JSON.stringify(testimonials));
+        } catch (e) {
+            // Ignore storage failures silently.
+        }
+    }
+
+    function syncTestimonialPlaceholder() {
+        var hasReviews = $testimonialCarousel.find('.testimonial-item').length > 0;
+        $('.testimonial-placeholder').toggle(!hasReviews);
+    }
+
+    $testimonialCarousel.owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        margin: 30,
+        dots: true,
+        loop: true,
+        items: 2,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 2
+            }
+        }
+    });
+
+    var savedTestimonials = loadTestimonials();
+    $.each(savedTestimonials, function (index, testimonial) {
+        var slide = buildTestimonialSlide(testimonial.name, testimonial.rating, testimonial.message);
+        $testimonialCarousel.trigger('add.owl.carousel', [slide, 0]).trigger('refresh.owl.carousel');
+    });
+    syncTestimonialPlaceholder();
+
+    $("#testimonialForm").on("submit", function (e) {
+        e.preventDefault();
+
+        var name = $.trim($("#testimonialName").val());
+        var rating = $.trim($("#testimonialRating").val());
+        var message = $.trim($("#testimonialMessage").val());
+
+        if (!name || !rating || !message) {
+            return;
+        }
+
+        var parsedRating = parseInt(rating, 10);
+        var testimonials = loadTestimonials();
+        testimonials.unshift({
+            name: name,
+            rating: parsedRating,
+            message: message
+        });
+        saveTestimonials(testimonials);
+
+        var newSlide = buildTestimonialSlide(name, parsedRating, message);
         $testimonialCarousel.trigger('add.owl.carousel', [newSlide, 0]).trigger('refresh.owl.carousel');
+        syncTestimonialPlaceholder();
         $testimonialCarousel.trigger('to.owl.carousel', [0, 300]);
-        $(this).trigger('reset');
+        this.reset();
     });
 
     // Gallery carousel
