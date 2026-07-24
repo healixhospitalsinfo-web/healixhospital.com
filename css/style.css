@@ -448,6 +448,30 @@ h6 {
     font-size: 0.95rem;
 }
 
+.faq-accordion .accordion-item {
+    overflow: hidden;
+}
+
+.faq-accordion .accordion-button {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark);
+    background: #fff;
+    padding: 1.1rem 1.25rem;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+    color: var(--dark);
+    background: #f7fbf8;
+    box-shadow: none;
+}
+
+.faq-accordion .accordion-body {
+    padding: 0 1.25rem 1.2rem;
+    color: #516074;
+}
+
 @media (min-width: 1200px) {
     .testimonial-item {
         min-height: 240px;
