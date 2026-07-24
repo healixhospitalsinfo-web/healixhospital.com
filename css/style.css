@@ -333,7 +333,8 @@
     background: #f7f9fb;
     padding: 18px 20px;
     border-radius: 22px;
-    min-height: 180px;
+    min-height: 230px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -374,8 +375,8 @@
 
 @media (min-width: 1200px) {
     .testimonial-item {
-        max-width: 340px;
-        min-height: 210px;
+        max-width: 100%;
+        min-height: 240px;
     }
 }
 
@@ -390,9 +391,15 @@
     }
 }
 
+.testimonial-carousel .owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+
 .testimonial-carousel .owl-item {
     display: flex;
     justify-content: center;
+    align-items: stretch;
 }
 
 .testimonial-carousel .owl-item img {
