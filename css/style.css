@@ -154,7 +154,7 @@
 
 @media (max-width: 767.98px) {
     .hero-header {
-        background-image: url(../img/about.jpg);
+        background-image: url(../img/hero-mobile.jpg);
         background-position: center;
         background-size: cover;
     }
