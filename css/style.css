@@ -717,7 +717,7 @@ bottom:18px;
     content:"✔";
     position:absolute;
     left:0;
-    color:#20b8a8;
+    color:#1DB853;
     font-weight:bold;
 }
 
@@ -729,7 +729,7 @@ bottom:18px;
 }
 
 .service-btn:hover{
-    color:#20b8a8;
+    color:#1DB853;
 }
 
 @media(max-width:991px){
