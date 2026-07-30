@@ -764,10 +764,10 @@ bottom:18px;
 
 }
 .hero-highlights{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-top:10px;
+    display:grid;
+    grid-template-columns:repeat(2, max-content);
+    gap:18px 20px;
+    margin-top:20px;
 }
 
 .highlight-item{
@@ -804,11 +804,7 @@ bottom:18px;
 @media(max-width:768px){
 
     .hero-highlights{
-        flex-direction:column;
-    }
-
-    .highlight-item{
-        width:100%;
+        grid-template-columns:1fr;
     }
 
 }
