@@ -808,9 +808,17 @@ bottom:18px;
     }
 
 }
-.topbar-sticky{
+.header-wrapper{
     position: sticky;
     top: 0;
-    z-index: 1055;
+    z-index: 9999;
+    width: 100%;
+}
+
+.topbar-sticky{
     background: #fff;
+}
+
+.container-fluid.bg-black{
+    background: #000 !important;
 }
