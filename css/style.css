@@ -209,7 +209,7 @@ h6 {
 
 @media (max-width: 767.98px) {
     .hero-header {
-        background-image: url(../img/hero-mobile.jpg);
+        background-image: url(../img/hero-mobile.png);
         background-position: center;
         background-size: cover;
     }
