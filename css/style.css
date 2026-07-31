@@ -822,3 +822,142 @@ bottom:18px;
 .container-fluid.bg-black{
     background: #000 !important;
 }
+.why-section{
+    background:#f7fbfd;
+}
+
+.section-subtitle{
+    color:#20b8a8;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.mindmap{
+    display:grid;
+    grid-template-columns:1fr 340px 1fr;
+    align-items:center;
+    gap:50px;
+}
+
+.mind-column{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+.mind-card{
+    background:#fff;
+    padding:22px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    position:relative;
+    transition:.35s;
+}
+
+.mind-card:hover{
+    transform:translateY(-6px);
+}
+
+.mind-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#20b8a8;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    flex-shrink:0;
+}
+
+.mind-card h5{
+    margin-bottom:8px;
+    color:#183b63;
+    font-weight:700;
+}
+
+.mind-card p{
+    margin:0;
+    color:#666;
+    font-size:15px;
+}
+
+.mind-center{
+    display:flex;
+    justify-content:center;
+    position:relative;
+}
+
+.center-circle{
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#20b8a8,#1b8fd6);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+    position:relative;
+}
+
+.center-circle i{
+    font-size:55px;
+    margin-bottom:18px;
+}
+
+.center-circle h4{
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.center-circle span{
+    opacity:.95;
+}
+
+/* Connecting Lines */
+
+.mind-column:first-child .mind-card::after{
+    content:"";
+    position:absolute;
+    right:-52px;
+    top:50%;
+    width:52px;
+    height:2px;
+    background:#20b8a8;
+}
+
+.mind-column:last-child .mind-card::before{
+    content:"";
+    position:absolute;
+    left:-52px;
+    top:50%;
+    width:52px;
+    height:2px;
+    background:#20b8a8;
+}
+
+/* Responsive */
+
+@media(max-width:991px){
+
+.mindmap{
+grid-template-columns:1fr;
+}
+
+.center-circle{
+margin:40px auto;
+}
+
+.mind-column:first-child .mind-card::after,
+.mind-column:last-child .mind-card::before{
+display:none;
+}
+
+}
