@@ -801,13 +801,7 @@ bottom:18px;
     font-size:18px;
 }
 
-@media(max-width:768px){
 
-    .hero-highlights{
-        grid-template-columns:1fr;
-    }
-
-}
 .header-wrapper{
     position: sticky;
     top: 0;
@@ -1099,5 +1093,173 @@ bottom:18px;
         font-size:20px;
         flex-shrink:0;
     }
+
+}
+
+/*====================================================
+            HERO MOBILE REDESIGN
+=====================================================*/
+
+@media (max-width:768px){
+
+/* Hero */
+
+.hero-header{
+
+    background-image:url("../img/hero-mobile.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    height:auto !important;
+
+    padding:110px 0 50px;
+
+}
+
+.hero-header .container{
+
+    padding-top:0;
+
+    padding-bottom:0;
+
+}
+
+.hero-header .col-lg-8{
+
+    max-width:100%;
+
+    text-align:center;
+
+}
+
+.hero-header h1{
+
+    font-size:38px;
+
+    line-height:1.15;
+
+}
+
+.hero-text{
+
+    text-align:center;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+}
+
+/* Buttons */
+
+.hero-header .d-flex.gap-3{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px !important;
+
+}
+
+.hero-header .btn{
+
+    width:100%;
+
+    max-width:320px;
+
+}
+
+/* Trust Cards */
+
+.hero-highlights{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+    margin-top:35px;
+
+}
+
+.highlight-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:rgba(18,26,36,.82);
+
+    backdrop-filter:blur(6px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:20px 12px;
+
+    min-height:145px;
+
+}
+
+.highlight-item i{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    background:#1DB853;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    font-size:22px;
+
+}
+
+.highlight-item span{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+}
+
+/* Reduce doctor image dominance */
+
+.hero-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(to bottom,
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.15));
+
+    pointer-events:none;
+
+}
 
 }
