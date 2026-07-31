@@ -822,22 +822,46 @@ bottom:18px;
 .container-fluid.bg-black{
     background: #000 !important;
 }
+/* ==========================
+   WHY CHOOSE US
+========================== */
+
 .why-section{
     background:#f7fbfd;
+    padding:100px 0;
 }
 
 .section-subtitle{
-    color:#20b8a8;
+    color:#1DB853;
     font-weight:700;
     letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:15px;
 }
+
+.why-section h2{
+    color:#183b63;
+    font-weight:700;
+}
+
+.why-section p{
+    color:#666;
+}
+
+/* ==========================
+      MIND MAP
+========================== */
 
 .mindmap{
     display:grid;
-    grid-template-columns:1fr 340px 1fr;
+    grid-template-columns:1fr 320px 1fr;
     align-items:center;
-    gap:50px;
+    gap:60px;
 }
+
+/* ==========================
+      LEFT & RIGHT
+========================== */
 
 .mind-column{
     display:flex;
@@ -845,119 +869,229 @@ bottom:18px;
     gap:35px;
 }
 
+/* ==========================
+      CARD
+========================== */
+
 .mind-card{
-    background:#fff;
-    padding:22px;
-    border-radius:18px;
+    position:relative;
     display:flex;
     align-items:center;
     gap:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    position:relative;
+    background:#fff;
+    padding:22px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
     transition:.35s;
 }
 
 .mind-card:hover{
     transform:translateY(-6px);
-}
-
-.mind-icon{
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    background:#20b8a8;
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
-    flex-shrink:0;
+    box-shadow:0 18px 40px rgba(29,184,83,.15);
 }
 
 .mind-card h5{
-    margin-bottom:8px;
     color:#183b63;
     font-weight:700;
+    margin-bottom:6px;
 }
 
 .mind-card p{
     margin:0;
     color:#666;
     font-size:15px;
+    line-height:1.6;
 }
+
+/* ==========================
+        ICON
+========================== */
+
+.mind-icon{
+    width:68px;
+    height:68px;
+    min-width:68px;
+    border-radius:50%;
+    background:#1DB853;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    transition:.3s;
+}
+
+.mind-card:hover .mind-icon{
+    transform:rotate(8deg) scale(1.08);
+}
+
+/* ==========================
+     CENTER LOGO
+========================== */
 
 .mind-center{
     display:flex;
     justify-content:center;
-    position:relative;
+    align-items:center;
 }
 
 .center-circle{
-    width:270px;
-    height:270px;
+
+    width:280px;
+    height:280px;
+
+    background:#fff;
+
+    border:8px solid #1DB853;
+
     border-radius:50%;
-    background:linear-gradient(135deg,#20b8a8,#1b8fd6);
-    color:#fff;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
     text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+    box-shadow:0 20px 45px rgba(29,184,83,.18);
+
     position:relative;
+
+    transition:.4s;
 }
 
-.center-circle i{
-    font-size:55px;
-    margin-bottom:18px;
+.center-circle:hover{
+
+    transform:scale(1.03);
+
+}
+
+.center-circle img{
+
+    width:120px;
+
+    margin-bottom:15px;
+
 }
 
 .center-circle h4{
+
+    color:#183b63;
+
     font-weight:700;
-    margin-bottom:10px;
+
+    margin-bottom:8px;
+
 }
 
 .center-circle span{
-    opacity:.95;
+
+    color:#666;
+
+    font-size:15px;
+
 }
 
-/* Connecting Lines */
+/* ==========================
+     CONNECTOR LINES
+========================== */
 
 .mind-column:first-child .mind-card::after{
+
     content:"";
+
     position:absolute;
-    right:-52px;
+
+    right:-60px;
+
     top:50%;
-    width:52px;
+
+    width:60px;
+
     height:2px;
-    background:#20b8a8;
+
+    background:#1DB853;
+
 }
 
 .mind-column:last-child .mind-card::before{
+
     content:"";
+
     position:absolute;
-    left:-52px;
+
+    left:-60px;
+
     top:50%;
-    width:52px;
+
+    width:60px;
+
     height:2px;
-    background:#20b8a8;
+
+    background:#1DB853;
+
 }
 
-/* Responsive */
+/* ==========================
+     RESPONSIVE
+========================== */
 
-@media(max-width:991px){
+@media(max-width:992px){
 
 .mindmap{
+
 grid-template-columns:1fr;
+
+gap:40px;
+
 }
 
 .center-circle{
-margin:40px auto;
+
+margin:auto;
+
 }
 
 .mind-column:first-child .mind-card::after,
+
 .mind-column:last-child .mind-card::before{
+
 display:none;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.center-circle{
+
+width:220px;
+
+height:220px;
+
+}
+
+.center-circle img{
+
+width:90px;
+
+}
+
+.mind-card{
+
+padding:18px;
+
+}
+
+.mind-icon{
+
+width:55px;
+height:55px;
+min-width:55px;
+
+font-size:22px;
+
 }
 
 }
