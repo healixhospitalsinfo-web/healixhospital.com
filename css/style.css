@@ -1095,39 +1095,190 @@ font-size:22px;
 }
 
 }
+/*=====================================================
+                WHY CHOOSE US
+=====================================================*/
+
+.why-section{
+    padding:100px 0;
+    background:#f7fbfd;
+}
+
+.section-subtitle{
+    color:#1DB853;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.why-section h2{
+    color:#183b63;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.why-section p{
+    color:#667085;
+}
+
+/*=====================================================
+                MIND MAP
+=====================================================*/
+
+.mindmap{
+    display:grid;
+    grid-template-columns:1fr 300px 1fr;
+    align-items:center;
+    gap:55px;
+    margin-top:60px;
+}
+
+/* LEFT & RIGHT */
+
+.mind-column{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+/* CARDS */
+
+.mind-card{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.mind-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px rgba(29,184,83,.15);
+}
+
+.mind-card h5{
+    color:#183b63;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.mind-card p{
+    margin:0;
+    color:#667085;
+    line-height:1.6;
+}
+
+/* ICON */
+
+.mind-icon{
+    width:68px;
+    height:68px;
+    min-width:68px;
+    border-radius:50%;
+    background:#1DB853;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+}
+
+/* CENTER */
+
 .mind-center{
-    position: relative;
-    z-index: 5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .center-circle{
-    position: relative;
-    z-index: 10;
-}
-.mind-center{
-    position: relative;
-    z-index: 5;
-}
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:#ffffff;
+    border:8px solid #1DB853;
 
-.center-circle{
-    position: relative;
-    z-index: 10;
-}
-.center-circle{
-    width:320px;
-    height:320px;
-    border:10px solid #1DB853;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 15px 40px rgba(29,184,83,.18);
 }
 
 .center-circle img{
-    width:150px;
-}
-.center-circle{
-    width:320px;
-    height:320px;
-    border:10px solid #1DB853;
+    width:140px;
+    height:auto;
+    object-fit:contain;
 }
 
-.center-circle img{
-    width:150px;
+/* CONNECTOR LINES */
+
+.mind-column:first-child .mind-card::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    right:-55px;
+    width:55px;
+    height:2px;
+    background:#1DB853;
+}
+
+.mind-column:last-child .mind-card::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:-55px;
+    width:55px;
+    height:2px;
+    background:#1DB853;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+    .mindmap{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .mind-center{
+        order:-1;
+        margin-bottom:10px;
+    }
+
+    .mind-column:first-child .mind-card::after,
+    .mind-column:last-child .mind-card::before{
+        display:none;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .center-circle{
+        width:200px;
+        height:200px;
+    }
+
+    .center-circle img{
+        width:110px;
+    }
+
+    .mind-card{
+        padding:18px;
+    }
+
+    .mind-icon{
+        width:55px;
+        height:55px;
+        min-width:55px;
+        font-size:22px;
+    }
+
 }
