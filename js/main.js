@@ -91,133 +91,26 @@
     });
 
 
-    // Testimonials carousel
-    var $testimonialCarousel = $(".testimonial-carousel");
-    var testimonialApiUrl = '/api/reviews';
-
-    function buildTestimonialSlide(name, rating, message) {
-        var stars = '';
-        for (var i = 1; i <= 5; i++) {
-            stars += '<i class="fas fa-star text-warning me-1' + (i <= rating ? '' : ' text-secondary') + '"></i>';
+// Testimonials carousel
+$(".testimonial-carousel").owlCarousel({
+    autoplay: true,
+    smartSpeed: 800,
+    margin: 30,
+    loop: true,
+    dots: true,
+    nav: false,
+    responsive:{
+        0:{
+            items:1
+        },
+        768:{
+            items:2
+        },
+        1200:{
+            items:3
         }
-
-        var newSlide = $(
-            '<div class="testimonial-item">' +
-            '  <h3 class="mt-2"></h3>' +
-            '  <div class="mb-3 testimonial-stars"></div>' +
-            '  <p></p>' +
-            '</div>'
-        );
-
-        newSlide.find('.testimonial-stars').html(stars);
-        newSlide.find('p').text(message);
-        newSlide.find('h3').text(name);
-
-        return newSlide;
     }
-
-    function syncTestimonialPlaceholder() {
-        var hasReviews = $testimonialCarousel.find('.testimonial-item').length > 0;
-        $('.testimonial-placeholder').toggle(!hasReviews);
-    }
-
-    function loadTestimonials() {
-        if (!testimonialApiUrl || testimonialApiUrl.indexOf('PASTE_') !== -1) {
-            return Promise.resolve([]);
-        }
-
-        return fetch(testimonialApiUrl)
-            .then(function (response) {
-                if (!response.ok) {
-                    throw new Error('Unable to load testimonials.');
-                }
-                return response.json();
-            })
-            .then(function (data) {
-                return Array.isArray(data.reviews) ? data.reviews : [];
-            })
-            .catch(function () {
-                return [];
-            });
-    }
-
-    $testimonialCarousel.owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 30,
-        dots: true,
-        loop: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 2
-            },
-            1200: {
-                items: 3
-            }
-        }
-    });
-
-    loadTestimonials().then(function (savedTestimonials) {
-        var sortedTestimonials = savedTestimonials.slice().sort(function (a, b) {
-            var aTime = new Date(a.created_at || 0).getTime();
-            var bTime = new Date(b.created_at || 0).getTime();
-            return bTime - aTime;
-        });
-
-        $.each(sortedTestimonials, function (index, testimonial) {
-            var slide = buildTestimonialSlide(testimonial.name, testimonial.rating, testimonial.message);
-            $testimonialCarousel.trigger('add.owl.carousel', [slide, 0]).trigger('refresh.owl.carousel');
-        });
-        syncTestimonialPlaceholder();
-    });
-
-    $("#testimonialForm").on("submit", function (e) {
-        e.preventDefault();
-
-        var name = $.trim($("#testimonialName").val());
-        var rating = $.trim($("#testimonialRating").val());
-        var message = $.trim($("#testimonialMessage").val());
-
-        if (!name || !rating || !message) {
-            return;
-        }
-
-        var parsedRating = parseInt(rating, 10);
-
-        fetch(testimonialApiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                rating: parsedRating,
-                message: message
-            })
-        })
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('Unable to submit testimonial.');
-            }
-            return response.json();
-        })
-        .then(function () {
-            var newSlide = buildTestimonialSlide(name, parsedRating, message);
-            $testimonialCarousel.trigger('add.owl.carousel', [newSlide, 0]).trigger('refresh.owl.carousel');
-            syncTestimonialPlaceholder();
-            $testimonialCarousel.trigger('to.owl.carousel', [0, 300]);
-            this.reset();
-        }.bind(this))
-        .catch(function () {
-            alert('Review could not be submitted. Please update the Apps Script URL in main.js.');
-        });
-    });
+});
 
     // Gallery carousel
     $(".gallery-carousel").owlCarousel({
@@ -266,6 +159,5 @@ if (popup && icon && closeBtn) {
 }
 
 })(jQuery);
-    
-})(jQuery);
+
 
