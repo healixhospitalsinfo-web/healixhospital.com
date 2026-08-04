@@ -643,6 +643,16 @@ bottom:18px;
     color:#666;
 }
 
+.ortho-tagline{
+    max-width:950px;
+    margin:0 auto;
+    font-size:22px;
+    font-weight:400;
+    line-height:1.7;
+    color:#4b5563;
+    text-align:center;
+}
+
 .services-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -1933,4 +1943,9 @@ height:350px;
 
 }
 
+}
+.ortho-tagline{
+    font-size:16px;
+    line-height:1.8;
+    padding:0 15px;
 }
