@@ -1660,3 +1660,277 @@ padding:12px 28px;
 font-weight:600;
 
 }
+
+/* WHY SECTION */
+
+.why-doctor{
+
+background:#F8FBFD;
+
+}
+
+.why-card{
+
+background:#fff;
+padding:35px;
+border-radius:18px;
+height:100%;
+text-align:center;
+transition:.35s;
+box-shadow:0 12px 35px rgba(0,0,0,.06);
+
+}
+
+.why-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.why-icon{
+
+width:90px;
+height:90px;
+border-radius:50%;
+background:#1DB853;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto auto 25px;
+color:#fff;
+font-size:34px;
+
+}
+
+.why-card h4{
+
+color:#16395F;
+font-size:24px;
+margin-bottom:15px;
+
+}
+
+.why-card p{
+
+color:#666;
+line-height:1.8;
+
+}
+
+
+
+/* STATS */
+
+.stats-section{
+
+background:#16395F;
+padding:80px 0;
+
+}
+
+.stat-box h2{
+
+font-size:52px;
+font-weight:800;
+color:#1DB853;
+
+}
+
+.stat-box p{
+
+color:#fff;
+font-size:18px;
+
+}
+
+
+
+/* REVIEW CTA */
+
+.review-highlight{
+
+background:#fff;
+
+}
+
+.review-highlight h2{
+
+font-size:42px;
+color:#16395F;
+margin-bottom:20px;
+
+}
+
+.review-highlight p{
+
+font-size:18px;
+color:#666;
+
+}
+
+.review-stars{
+
+font-size:28px;
+color:#FFC107;
+font-weight:700;
+
+}
+
+.review-stars span{
+
+font-size:18px;
+color:#16395F;
+margin-left:15px;
+
+}
+
+/* FAQ */
+
+.faq-section{
+
+background:#F8FBFD;
+
+}
+
+.accordion-item{
+
+border:none;
+margin-bottom:18px;
+border-radius:15px!important;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+}
+
+.accordion-button{
+
+font-size:18px;
+font-weight:600;
+padding:22px;
+
+}
+
+.accordion-button:not(.collapsed){
+
+background:#1DB853;
+color:#fff;
+
+}
+
+.accordion-body{
+
+font-size:16px;
+line-height:1.8;
+color:#666;
+
+}
+
+
+
+/* MAP */
+
+.doctor-map{
+
+background:#fff;
+
+}
+
+.map-box{
+
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.map-box iframe{
+
+width:100%;
+height:500px;
+border:0;
+
+}
+
+
+
+/* CTA */
+
+.doctor-cta{
+
+background:linear-gradient(135deg,#16395F,#1DB853);
+padding:80px 0;
+
+}
+
+.doctor-cta h2{
+
+color:#fff;
+font-size:46px;
+margin-bottom:20px;
+
+}
+
+.doctor-cta p{
+
+color:#fff;
+font-size:18px;
+opacity:.9;
+
+}
+
+.doctor-cta .btn{
+
+padding:14px 32px;
+font-weight:600;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:991px){
+
+.doctor-title{
+
+font-size:40px;
+
+}
+
+.section-title{
+
+font-size:34px;
+
+}
+
+.doctor-highlights{
+
+grid-template-columns:1fr;
+
+}
+
+.why-card{
+
+margin-bottom:20px;
+
+}
+
+.doctor-cta{
+
+text-align:center;
+
+}
+
+.doctor-cta h2{
+
+font-size:34px;
+
+}
+
+.map-box iframe{
+
+height:350px;
+
+}
+
+}
