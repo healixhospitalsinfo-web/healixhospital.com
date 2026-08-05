@@ -1956,76 +1956,129 @@ height:350px;
 ==========================================*/
 
 .doctor-hero{
-
-padding:100px 0;
-
+    padding:90px 0;
+    background:#f8fbff;
 }
 
-.doctor-label{
-
-color:#1DB853;
-
-font-size:15px;
-
-font-weight:700;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-display:inline-block;
-
-margin-bottom:20px;
-
+.hero-badge{
+    display:inline-block;
+    padding:10px 18px;
+    background:#EAF8EF;
+    color:#1DB853;
+    border-radius:50px;
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:25px;
 }
 
-.doctor-title{
-
-font-size:64px;
-
-font-weight:700;
-
-color:#16395F;
-
-margin-bottom:10px;
-
+.hero-heading{
+    font-size:58px;
+    font-weight:800;
+    line-height:1.15;
+    color:#16395F;
+    margin-bottom:25px;
 }
 
-.doctor-speciality{
-
-color:#1DB853;
-
-font-size:32px;
-
-margin-bottom:25px;
-
+.hero-heading span{
+    color:#1DB853;
 }
 
-.doctor-description{
-
-font-size:19px;
-
-line-height:1.9;
-
-margin-bottom:35px;
-
-color:#666;
-
+.hero-text{
+    font-size:20px;
+    line-height:1.8;
+    color:#667085;
+    max-width:600px;
+    margin-bottom:35px;
 }
 
 .doctor-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:45px;
+}
 
-display:flex;
-
-gap:20px;
-
-flex-wrap:wrap;
-
+.doctor-image-wrapper{
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.12);
 }
 
 .doctor-image{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+    border-radius:28px;
+}
 
-max-height:650px;
+.doctor-highlights{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.highlight-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#fff;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.highlight-box:hover{
+    transform:translateY(-6px);
+}
+
+.highlight-box i{
+    width:46px;
+    height:46px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:#EAF8EF;
+    color:#1DB853;
+    font-size:20px;
+}
+
+.highlight-box span{
+    color:#16395F;
+    font-size:16px;
+    font-weight:600;
+}
+
+@media(max-width:991px){
+
+.hero-heading{
+    font-size:42px;
+}
+
+.hero-text{
+    font-size:17px;
+}
+
+.doctor-buttons{
+    justify-content:center;
+}
+
+.doctor-highlights{
+    grid-template-columns:1fr;
+}
+
+.doctor-image{
+    height:auto;
+}
+
+.doctor-hero{
+    text-align:center;
+}
+
+.hero-text{
+    margin:auto auto 35px;
+}
 
 }
 
