@@ -536,7 +536,7 @@ h6 {
 .wa-popup{
     position:fixed;
     bottom:100px;
-    right:25px;
+    left:25px;
     width:330px;
     background:#fff;
     border-radius:15px;
@@ -633,7 +633,7 @@ bottom:90px;
 }
 
 .wa-icon{
-right:18px;
+left:18px;
 bottom:18px;
 }
 
