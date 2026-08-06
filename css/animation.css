@@ -1,0 +1,589 @@
+/*==================================================
+                HEALIX HOSPITAL
+             PREMIUM ANIMATIONS CSS
+==================================================*/
+
+
+/*--------------------------------------------------
+GLOBAL
+---------------------------------------------------*/
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+
+/*--------------------------------------------------
+GLOBAL TRANSITIONS
+---------------------------------------------------*/
+
+a,
+button,
+.btn,
+.service-btn,
+.service-card,
+.mind-card,
+.stat-box,
+.highlight-item,
+.gallery-collage img,
+.team-item,
+.testimonial-item,
+.accordion-item,
+.nav-link,
+.social-icon,
+.call-icon,
+.wa-icon{
+
+    transition:all .35s ease;
+
+}
+
+
+/*--------------------------------------------------
+BUTTONS
+---------------------------------------------------*/
+
+.btn:hover,
+.service-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+}
+
+
+/*--------------------------------------------------
+NAVBAR
+---------------------------------------------------*/
+
+.navbar{
+
+    transition:.4s ease;
+
+}
+
+.nav-link{
+
+    position:relative;
+
+}
+
+.nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:2px;
+
+    background:#00C896;
+
+    left:0;
+
+    bottom:0;
+
+    transition:.35s;
+
+}
+
+.nav-link:hover::after{
+
+    width:100%;
+
+}
+
+
+/*--------------------------------------------------
+HERO BUTTONS
+---------------------------------------------------*/
+
+.hero-header .btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/*--------------------------------------------------
+WHY CHOOSE US
+---------------------------------------------------*/
+
+.mind-card{
+
+    transition:.35s;
+
+}
+
+.mind-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+
+}
+
+
+/*--------------------------------------------------
+ABOUT ICONS
+---------------------------------------------------*/
+
+.bg-light.rounded-circle{
+
+    transition:.35s;
+
+}
+
+.bg-light.rounded-circle:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+/*--------------------------------------------------
+SERVICE CARDS
+---------------------------------------------------*/
+
+.service-card{
+
+    transition:.35s;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 50px rgba(0,0,0,.12);
+
+}
+
+.service-image img{
+
+    transition:.5s;
+
+}
+
+.service-card:hover .service-image img{
+
+    transform:scale(1.08);
+
+}
+
+
+/*--------------------------------------------------
+STATS
+---------------------------------------------------*/
+
+.stat-box{
+
+    transition:.35s;
+
+}
+
+.stat-box:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+/*--------------------------------------------------
+DOCTOR CARDS
+---------------------------------------------------*/
+
+#team .shadow-sm{
+
+    transition:.35s;
+
+}
+
+#team .shadow-sm:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15)!important;
+
+}
+
+#team img{
+
+    transition:.45s;
+
+}
+
+#team .shadow-sm:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+/*--------------------------------------------------
+GALLERY
+---------------------------------------------------*/
+
+.gallery-collage img{
+
+    transition:.45s;
+
+}
+
+.gallery-collage img:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+
+/*--------------------------------------------------
+TESTIMONIALS
+---------------------------------------------------*/
+
+.testimonial-item{
+
+    transition:.35s;
+
+}
+
+.testimonial-item:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+/*--------------------------------------------------
+FAQ
+---------------------------------------------------*/
+
+.accordion-item{
+
+    transition:.35s;
+
+}
+
+.accordion-item:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/*--------------------------------------------------
+FOOTER
+---------------------------------------------------*/
+
+.footer a{
+
+    transition:.3s;
+
+}
+
+.footer a:hover{
+
+    padding-left:8px;
+
+}
+
+
+/*--------------------------------------------------
+FLOATING BUTTONS
+---------------------------------------------------*/
+
+.wa-icon:hover,
+.call-icon:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/*--------------------------------------------------
+IMAGE HOVER
+---------------------------------------------------*/
+
+img{
+
+    transition:.45s;
+
+}
+
+
+/*--------------------------------------------------
+TEXT SELECTION
+---------------------------------------------------*/
+
+::selection{
+
+    background:#00C896;
+
+    color:#fff;
+
+}
+
+
+/*--------------------------------------------------
+SCROLLBAR
+---------------------------------------------------*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f4f4f4;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00C896;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#009d77;
+
+}
+
+
+/*--------------------------------------------------
+PAGE LOADER FADE
+---------------------------------------------------*/
+
+body{
+
+    animation:pageFade .8s ease;
+
+}
+
+@keyframes pageFade{
+
+from{
+
+    opacity:0;
+
+}
+
+to{
+
+    opacity:1;
+
+}
+
+}
+
+
+/*--------------------------------------------------
+FLOAT EFFECT
+---------------------------------------------------*/
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+.center-circle{
+
+    animation:floating 5s ease-in-out infinite;
+
+}
+
+
+/*--------------------------------------------------
+PULSE
+---------------------------------------------------*/
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.04);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+.call-icon{
+
+    animation:pulse 2.8s infinite;
+
+}
+
+.wa-icon{
+
+    animation:pulse 2.8s infinite;
+
+}
+
+
+/*--------------------------------------------------
+RESPONSIVE
+---------------------------------------------------*/
+
+@media(max-width:768px){
+
+.service-card:hover,
+.mind-card:hover,
+.testimonial-item:hover,
+.stat-box:hover,
+#team .shadow-sm:hover{
+
+    transform:none;
+
+}
+
+.gallery-collage img:hover{
+
+    transform:none;
+
+}
+
+}
+
+/*==========================================
+        SCROLL ANIMATIONS
+==========================================*/
+
+.fade-up{
+
+    opacity:0;
+
+    transform:translateY(70px);
+
+    transition:all .9s ease;
+
+}
+
+.fade-up.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+.fade-down{
+
+    opacity:0;
+
+    transform:translateY(-70px);
+
+    transition:all .9s ease;
+
+}
+
+.fade-down.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+.fade-left{
+
+    opacity:0;
+
+    transform:translateX(-70px);
+
+    transition:all .9s ease;
+
+}
+
+.fade-left.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+
+
+.fade-right{
+
+    opacity:0;
+
+    transform:translateX(70px);
+
+    transition:all .9s ease;
+
+}
+
+.fade-right.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+
+
+.zoom-in{
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:all .9s ease;
+
+}
+
+.zoom-in.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
